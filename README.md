@@ -13,7 +13,7 @@ Container à déployer sur un serveur jouant le rôle de serveur mandataire entr
 
 - Horaires des BU : passerelle redirigeant les requêtes sur http://si-scd.unice.fr/si-scd/php/si2primo/allHoraires.php depuis le portail web
   
-## Routing API Koha
+## Routing API
 
 - /api/v1 : Hello World
 - /api/v1/hello : Hello World
