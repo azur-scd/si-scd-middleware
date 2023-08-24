@@ -1,5 +1,11 @@
 # syntax=docker/dockerfile:1
 FROM python:3.10.8-slim-buster
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get update \
+ && apt-get install -yq --no-install-recommends \
+    wget \
+	sudo \
+	default-jdk
 WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip install --upgrade pip

@@ -11,13 +11,15 @@ Container à déployer sur un serveur jouant le rôle de serveur mandataire entr
 
 ## Cas d'usage
 
-- Horaires des BU : passerelle redirigeant les requêtes sur http://si-scd.unice.fr/si-scd/php/si2primo/allHoraires.php depuis le portail web
+- Horaires des BU : passerelle exposant http://si-scd.unice.fr/si-scd/php/si2primo/allHoraires.php pour le portail web
+- Bases de données (docelec) : passerelle exposant les métadonnées de signalement des BDD http://si-scd.unice.fr/si-scd-prod/api/signalement pour Primo. Les métadonnées sont converties en oai_dc à la volée (conversion xslt) et re-exposées en "simulant" un endpoint de serveur OAI-PMH (https://localhost:5000/oai.py?verb=ListRecords&metadataPrefix=oai_dc&set=BDD en local), qui sert ensuite de datasource OAI pour la configuration d'un pipe Primo.
   
 ## Routing API
 
 - /api/v1 : Hello World
 - /api/v1/hello : Hello World
 - /api/v1/horaires : horaires d'ouverture des BU à - 1 semaine et + 6 mois
+- /oai.py?verb=ListRecords&metadataPrefix=oai_dc&set=BDD : bdd en oai_dc
 
 
 ## Dev : Build & déploiement
